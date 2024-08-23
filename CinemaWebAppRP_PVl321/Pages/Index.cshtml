@@ -1,12 +1,18 @@
-﻿@page
+﻿@page "{cinema?}" 
+@* https://localhost:7012/Ukraine
+https://localhost:7012/Index/Ukraine *@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-}
 
+
+}
+@* https://localhost:7012/Index?cinema=Ukraine&city=Rivne *@
+<h1> @Model.Cinema</h1>
+@* <h2>@Request.Query["city"]</h2> *@
 <div class="text-center">
-    <h1 class="display-4">@Model.Message</h1>
-    <h1 class="display-4">Cinema</h1>
+    <h2 class="display-4">@Model.Message</h2>
+    <h2 class="display-4">Cinema</h2>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,6 +20,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Director</th>
                 <th scope="col">Style</th>
+                <th scope="col">Detail</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +30,10 @@
                 <th scope="row">@movie.Id</th>
                 <td>@movie.Title</td>
                 <td>@movie.Director</td>
-                <td>@movie.Style</td>
+                    <td>@movie.Style</td>
+                    @* <td><a href="./Movies/InfoMovie/@movie.Id">FullInfo</a></td> *@
+                    <td><a asp-page="Movies/InfoMovie" asp-route-id="@movie.Id" >FullInfo</a></td>
+
             </tr>
             }
            

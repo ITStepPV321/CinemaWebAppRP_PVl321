@@ -1,0 +1,37 @@
+﻿@page "{id:int}"
+@model InfoMovieModel
+@{
+}
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+		<h5 class="card-title">@Model.MovieInfo.Title</h5>
+		<h6 class="card-subtitle mb-2 text-body-secondary">@Model.MovieInfo.Director </h6>
+		<h6 class="card-subtitle mb-2 text-body-secondary">@Model.MovieInfo.Style </h6>
+		<p class="card-text">@Model.MovieInfo.ShortDescription</p>
+
+	</div>
+	</div>
+	<h3>Session</h3>
+	<table class="table table-striped">
+		
+		<thead>
+			<tr>
+				<th scope="col">#Id</th>
+				<th scope="col">Data</th>
+				<th scope="col">Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var session in Model.MovieInfo.Sessions)
+			{
+				<tr>
+					<th scope="row">@session.Id</th>
+					<td>@session.DateSession</td>
+					<td>@session.TimeSession</td>
+				</tr>
+			}
+
+		</tbody>
+	</table>
+	@* <a class="card-link" href="../../Index">Back</a> *@
+	<a class="card-link" asp-page="../Index">Back</a>

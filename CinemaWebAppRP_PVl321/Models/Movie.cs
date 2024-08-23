@@ -7,6 +7,7 @@
         public string? Director { get; set; }
         public string? Style { get; set; }
         public string? ShortDescription { get; set; }
+        public List<Session> Sessions { get; set; } = new List<Session>();
 
     }
     
