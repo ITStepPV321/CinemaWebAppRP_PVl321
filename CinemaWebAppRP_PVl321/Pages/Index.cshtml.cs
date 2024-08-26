@@ -22,20 +22,20 @@ namespace CinemaWebAppRP_PVl321.Pages
 
         //parameters get-request: https://localhost:7012/Index?cinema=Ukraine
         //parameters path: https://localhost:7012/Ukraine https://localhost:7012/Index/Ukraine
-        //      public void OnGet(string? cinema)
-        //{
-        //	Message = "Using property from page model";
-        //          Movies = MovieSevice.GetAll();
-        //          //Cinema = RouteData.Values["cinema"];
-        //          //Cinema = Request.Query["cinema"].ToString();
-        //          Cinema = cinema;
-
-        //      }
-
-        public void OnGet()
+        public void OnGet(string? cinema)
         {
+            Message = "Using property from page model";
             Movies = MovieSevice.GetAll();
+           //?? Cinema = RouteData.Values["cinema"];
+            //Cinema = Request.Query["cinema"].ToString();
+            Cinema = cinema;
+
         }
+
+        //public void OnGet()
+        //{
+        //    Movies = MovieSevice.GetAll();
+        //}
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿@page "{cinema?}" 
-@* https://localhost:7012/Ukraine
+@* https://localhost:7012/Ukraine/Rivne
 https://localhost:7012/Index/Ukraine *@
 @model IndexModel
 @{
@@ -8,8 +8,9 @@ https://localhost:7012/Index/Ukraine *@
 
 }
 @* https://localhost:7012/Index?cinema=Ukraine&city=Rivne *@
-<h1> @Model.Cinema</h1>
+<h3> @Model.Cinema</h3>
 @* <h2>@Request.Query["city"]</h2> *@
+<h2>@(RouteData.Values["cinema"])</h2>
 <div class="text-center">
     <h2 class="display-4">@Model.Message</h2>
     <h2 class="display-4">Cinema</h2>
