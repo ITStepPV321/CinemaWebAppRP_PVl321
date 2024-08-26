@@ -36,6 +36,15 @@ namespace CinemaWebAppRP_PVl321.Pages
         //{
         //    Movies = MovieSevice.GetAll();
         //}
+       // public void OnPost(string? cinema) { }
+
+        //delete
+        public IActionResult OnPost(int id) { 
+            MovieSevice.Delete(id);
+            //return Content("Deleted!"); //contect page
+            //return Page(); //   1) current page "Index"
+            return RedirectToPage("Index"); // 2) current page
+        }
 
     }
 }

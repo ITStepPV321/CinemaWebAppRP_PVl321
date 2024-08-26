@@ -22,6 +22,7 @@ https://localhost:7012/Index/Ukraine *@
                 <th scope="col">Director</th>
                 <th scope="col">Style</th>
                 <th scope="col">Detail</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,13 @@ https://localhost:7012/Index/Ukraine *@
                 <td>@movie.Director</td>
                     <td>@movie.Style</td>
                     @* <td><a href="./Movies/InfoMovie/@movie.Id">FullInfo</a></td> *@
-                    <td><a asp-page="Movies/InfoMovie" asp-route-id="@movie.Id" >FullInfo</a></td>
+                    <td><a asp-page="Movies/InfoMovie" asp-route-id="@movie.Id">FullInfo</a></td>
+                   <td>
+                    <form method="post"   asp-route-id="@movie.Id">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                    </td>
+                   
 
             </tr>
             }

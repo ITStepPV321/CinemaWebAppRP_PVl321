@@ -18,6 +18,11 @@ namespace CinemaWebAppRP_PVl321.Services
 		public static List<Movie> GetAll() => Movies;
 
 		public static Movie? GetById(int id) => Movies.FirstOrDefault(m => m.Id == id);
+		public static void Delete(int id) {
+			var movie = GetById(id);
+			if (movie is null) return;
+			Movies.Remove(movie);
+		}
         public static void SeedData()
 		{
 			Movies.Add(new Movie()
