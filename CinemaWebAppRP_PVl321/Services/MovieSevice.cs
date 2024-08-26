@@ -18,12 +18,19 @@ namespace CinemaWebAppRP_PVl321.Services
 		public static List<Movie> GetAll() => Movies;
 
 		public static Movie? GetById(int id) => Movies.FirstOrDefault(m => m.Id == id);
-		public static void Delete(int id) {
+		public static void Add(Movie movie)
+		{
+			movie.Id = ++nextId;
+			Movies.Add(movie);
+
+		}
+		public static void Delete(int id)
+		{
 			var movie = GetById(id);
 			if (movie is null) return;
 			Movies.Remove(movie);
 		}
-        public static void SeedData()
+		public static void SeedData()
 		{
 			Movies.Add(new Movie()
 			{
@@ -39,13 +46,13 @@ namespace CinemaWebAppRP_PVl321.Services
 						DateSession = new DateTime(2024,08,24),
 						TimeSession = new TimeOnly(10,30)
 					},
-                    new Session()
-                    {
-                        Id=2,
-                        DateSession = new DateTime(2024,08,25),
-                        TimeSession = new TimeOnly(13,30)
-                    },
-                }
+					new Session()
+					{
+						Id=2,
+						DateSession = new DateTime(2024,08,25),
+						TimeSession = new TimeOnly(13,30)
+					},
+				}
 			}); ;
 			Movies.Add(new Movie()
 			{
@@ -67,7 +74,8 @@ namespace CinemaWebAppRP_PVl321.Services
 					DateSession = new DateTime(2024, 08, 25),
 					TimeSession = new TimeOnly(13, 30)
 				},
-			} }
+			}
+			}
 			);
 		}
 
