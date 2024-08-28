@@ -21,7 +21,8 @@ namespace CinemaWebAppRP_PVl321.Pages.Movies
 		{
 
 			Message = NewMovie.Title;
-
+		    if (String.IsNullOrEmpty(NewMovie.Title) && String.IsNullOrEmpty(NewMovie.Director) && String.IsNullOrEmpty(NewMovie.ShortDescription))
+				return Page();
 			MovieSevice.Add(NewMovie);
 			//return Page();
 			return RedirectToPage("../Index");
