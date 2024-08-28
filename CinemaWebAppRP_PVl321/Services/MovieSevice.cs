@@ -43,6 +43,24 @@ namespace CinemaWebAppRP_PVl321.Services
 			if (movie is null) return;
 			Movies.Remove(movie);
 		}
+
+
+		public static void AddSessionToMovie(Session session, int idMovie) {
+			int index = Movies.FindIndex(m => m.Id == idMovie);
+			if (index == -1) return;
+			List<Session> oldSessions = Movies[index].Sessions;
+			if (oldSessions.Count == 0)
+			{
+				session.Id = 1;
+				Movies[index].Sessions.Add(session);
+			}
+			else {
+				session.Id = oldSessions.Last<Session>().Id+1;
+				Movies[index].Sessions.Add(session);
+
+			}
+
+        }
 		public static void SeedData()
 		{
 			Movies.Add(new Movie()

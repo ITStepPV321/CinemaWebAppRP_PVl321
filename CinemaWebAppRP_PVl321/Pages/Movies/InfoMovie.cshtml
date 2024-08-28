@@ -4,7 +4,7 @@
 }
 <div class="card" style="width: 18rem;">
 	<div class="card-body">
-		<h5 class="card-title">@Model.MovieInfo.Title</h5>
+		<h5 class="card-title">@Model.MovieInfo?.Title</h5>
 		<h6 class="card-subtitle mb-2 text-body-secondary">@Model.MovieInfo.Director </h6>
 		<h6 class="card-subtitle mb-2 text-body-secondary">@Model.MovieInfo.Style </h6>
 		<p class="card-text">@Model.MovieInfo.ShortDescription</p>
@@ -12,6 +12,7 @@
 	</div>
 	</div>
 	<h3>Session</h3>
+	<p><a class="link-opacity-100" href="/Sessions/Create/@Model.MovieInfo.Id">Create</a></p>
 	<table class="table table-striped">
 		
 		<thead>

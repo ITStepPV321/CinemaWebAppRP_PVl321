@@ -1,0 +1,26 @@
+﻿@page "{id:int}"
+@model CinemaWebAppRP_PVl321.Pages.Sessions.CreateModel
+@{
+}
+<h3>Added date ane time session for @Model.Movie?.Title</h3>
+<form method="post" asp-antiforgery="true">
+	<div class="mb-3">
+		<label for="DateSession" class="form-label">Date</label>
+		<input type="date" class="form-control" id="DateSession" name="DateSession">
+	</div>
+	<div class="mb-3">
+		<label for="TimeSession" class="form-label">Time</label>
+		<input type="time" class="form-control" id="TimeSession" name="TimeSession">
+	</div>
+	<div class="mb-3">
+		<input type="number" class="form-control" name="idMovie" value="@Model.IdMovie" hidden>
+	</div>
+	<div class="col-auto">
+		<button type="submit" class="btn btn-primary mb-3">Save</button>
+	</div>
+</form>
+@* 
+@if (Request.Method == "POST") {
+	<p>@Request.Form["DateSession"]</p>
+	<p>@Request.Form["TimeSession"]</p>
+ }*@
