@@ -24,6 +24,16 @@ namespace CinemaWebAppRP_PVl321.Services
 			Movies.Add(movie);
 
 		}
+
+		public static void Update(Movie movie) {
+			int index = Movies.FindIndex(m => m.Id == movie.Id);
+			//if (index >= 0)
+			//{
+			//	Movies[index] = movie;
+			//}
+			if (index == -1) return;
+			Movies[index] = movie;
+		}
 		public static void Delete(int id)
 		{
 			var movie = GetById(id);
