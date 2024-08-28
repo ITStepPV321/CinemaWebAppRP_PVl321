@@ -25,7 +25,7 @@ namespace CinemaWebAppRP_PVl321.Pages.Movies
 				return RedirectToPage("Edit", new {movie.Id});
 				//return RedirectToPage($"Edit/{movie.Id}");
 				//return  RedirectToRoute($"./Edit/{movie.Id}");
-
+				
 			MovieSevice.Update(movie);
             //return RedirectToPage("../Index");
             return RedirectToPage("/Index");

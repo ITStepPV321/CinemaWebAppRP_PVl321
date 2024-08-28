@@ -25,33 +25,19 @@ namespace CinemaWebAppRP_PVl321.Pages
 		//parameters get-request: https://localhost:7012/Index?cinema=Ukraine
 		//parameters path: https://localhost:7012/Ukraine https://localhost:7012/Index/Ukraine
 
-		public void OnGet(Person person) //name=Tetiana&Age=40
+
+		public void OnGet(string? searchmovie) //name=Tetiana&Age=40
 		{
-			Message = $"Get object Person {person.Name} {person.Age}";
-			Movies = MovieSevice.GetAll();
-			//?? Cinema = RouteData.Values["cinema"];
-			//Cinema = Request.Query["cinema"].ToString();
-			
+            if (string.IsNullOrEmpty(searchmovie))
+                Movies = MovieSevice.GetAll();
+            else
+                Movies = MovieSevice.SerachMovieByTitle(searchmovie);
+            // Cinema = RouteData.Values["cinema"];
+            //Cinema = Request.Query["cinema"].ToString();
+        }
 
-		}
-
-		//public void OnGet(string? cinema)
-		//{
-		//    Message = "Using property from page model";
-		//    Movies = MovieSevice.GetAll();
-		//   //?? Cinema = RouteData.Values["cinema"];
-		//    //Cinema = Request.Query["cinema"].ToString();
-		//    Cinema = cinema;
-
-		//}
-
-		//public void OnGet()
-		//{
-		//    Movies = MovieSevice.GetAll();
-		//}
-		// public void OnPost(string? cinema) { }
-
-		//delete
+		
+        //delete
 		public IActionResult OnPost(int id) { 
             MovieSevice.Delete(id);
             //return Content("Deleted!"); //contect page
@@ -59,13 +45,39 @@ namespace CinemaWebAppRP_PVl321.Pages
             return RedirectToPage("Index"); // 2) current page
         }
 
-    }
-	//public record class Person(string Name, int Age);
-	public class Person {
-        public int Age { get; set; }
-        public string Name { get; set; }
 
+        //public void OnGet(Person person) //name=Tetiana&Age=40
+        //{
+        //	Message = $"Get object Person {person.Name} {person.Age}";
+        //	Movies = MovieSevice.GetAll();
+        //	//?? Cinema = RouteData.Values["cinema"];
+        //	//Cinema = Request.Query["cinema"].ToString();
+
+
+        //}
+
+        //public void OnGet(string? cinema)
+        //{
+        //    Message = "Using property from page model";
+        //    Movies = MovieSevice.GetAll();
+        //   //?? Cinema = RouteData.Values["cinema"];
+        //    //Cinema = Request.Query["cinema"].ToString();
+        //    Cinema = cinema;
+
+        //}
+
+        //public void OnGet()
+        //{
+        //    Movies = MovieSevice.GetAll();
+        //}
+        // public void OnPost(string? cinema) { }
     }
+    //public record class Person(string Name, int Age);
+    //public class Person {
+    //    public int Age { get; set; }
+    //    public string Name { get; set; }
+
+    //}
 
 }
 

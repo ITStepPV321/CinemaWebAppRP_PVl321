@@ -18,6 +18,9 @@ namespace CinemaWebAppRP_PVl321.Services
 		public static List<Movie> GetAll() => Movies;
 
 		public static Movie? GetById(int id) => Movies.FirstOrDefault(m => m.Id == id);
+        public static List<Movie> SerachMovieByTitle(string title) => Movies.Where(m=>m.Title.ToLower().Contains(title.ToLower())).ToList();
+
+
 		public static void Add(Movie movie)
 		{
 			movie.Id = ++nextId;

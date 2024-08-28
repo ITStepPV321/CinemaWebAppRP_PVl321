@@ -7,6 +7,8 @@ https://localhost:7012/Index/Ukraine *@
 
 
 }
+
+
 @* https://localhost:7012/Index?cinema=Ukraine&city=Rivne *@
 <h3> @Model.Cinema</h3>
 @* <h2>@Request.Query["city"]</h2> *@
@@ -14,6 +16,11 @@ https://localhost:7012/Index/Ukraine *@
 <div class="text-center">
     <h2 class="display-4">@Model.Message</h2>
     <h2 class="display-4">Cinema</h2>
+    <form method="get">
+        <input type="type" name="searchmovie"  />
+        <button type="submit" class="btn btn-primary">SearchByTitle</button>
+    </form>
+
     @* <p><a class="link-opacity-100" href="./Movies/Create">Create</a></p> *@
     <p><a class="link-opacity-100" href="Movies/Create">Create</a></p>
     <table class="table table-striped">
