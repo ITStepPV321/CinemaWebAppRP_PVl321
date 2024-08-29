@@ -36,9 +36,33 @@ namespace CinemaWebAppRP_PVl321.Pages
             //Cinema = Request.Query["cinema"].ToString();
         }
 
-		
+        public IActionResult OnPostClear(string? searchmovie) //name=Tetiana&Age=40
+        {
+            return RedirectToPage("Index");
+
+        }
+
+        public void OnPostSearchTitle(string? searchmovie) //name=Tetiana&Age=40
+        {
+            if (string.IsNullOrEmpty(searchmovie))
+                Movies = MovieSevice.GetAll();
+            else
+                Movies = MovieSevice.SerachMovieByTitle(searchmovie);
+           
+        }
+
+        public void OnPostSearchStyle(string? searchmovie) //name=Tetiana&Age=40
+        {
+            if (string.IsNullOrEmpty(searchmovie))
+                Movies = MovieSevice.GetAll();
+            else
+                Movies = MovieSevice.SerachMovieByStyle(searchmovie);
+
+        }
+
+
         //delete
-		public IActionResult OnPost(int id) { 
+        public IActionResult OnPost(int id) { 
             MovieSevice.Delete(id);
             //return Content("Deleted!"); //contect page
             //return Page(); //   1) current page "Index"

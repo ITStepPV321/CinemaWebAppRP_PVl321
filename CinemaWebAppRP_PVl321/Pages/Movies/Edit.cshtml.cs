@@ -21,8 +21,13 @@ namespace CinemaWebAppRP_PVl321.Pages.Movies
 		//"./Index"  =>Pages/Movies/Index
 		//"Index"  =>Pages/Movies/Index
 		public IActionResult OnPost(Movie movie) {
-			if (String.IsNullOrEmpty(movie.Title) && String.IsNullOrEmpty(movie.Director))
-				return RedirectToPage("Edit", new {movie.Id});
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToPage("Edit", new { movie.Id });
+            }
+			//if (String.IsNullOrEmpty(movie.Title) && String.IsNullOrEmpty(movie.Director))
+			//	return RedirectToPage("Edit", new {movie.Id});
 				//return RedirectToPage($"Edit/{movie.Id}");
 				//return  RedirectToRoute($"./Edit/{movie.Id}");
 				

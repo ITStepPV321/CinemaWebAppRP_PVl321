@@ -1,4 +1,4 @@
-﻿@page "{cinema?}" 
+﻿@page  
 @* https://localhost:7012/Ukraine/Rivne
 https://localhost:7012/Index/Ukraine *@
 @model IndexModel
@@ -16,9 +16,16 @@ https://localhost:7012/Index/Ukraine *@
 <div class="text-center">
     <h2 class="display-4">@Model.Message</h2>
     <h2 class="display-4">Cinema</h2>
-    <form method="get">
+  @*   <form method="get">
         <input type="type" name="searchmovie"  />
         <button type="submit" class="btn btn-primary">SearchByTitle</button>
+    </form> *@
+
+    <form method="post">
+        <input type="type" name="searchmovie" />
+        <button asp-page-handler="Clear">ClearFilter</button>
+        <button asp-page-handler="SearchTitle">SearchByTitle</button>
+        <button asp-page-handler="SearchStyle">SearchByStyle</button>
     </form>
 
     @* <p><a class="link-opacity-100" href="./Movies/Create">Create</a></p> *@
