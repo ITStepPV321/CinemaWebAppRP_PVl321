@@ -36,7 +36,9 @@ namespace CinemaWebAppRP_PVl321.Services
 			//	Movies[index] = movie;
 			//}
 			if (index == -1) return;
-			Movies[index] = movie;
+            List<Session> sessions = Movies[index].Sessions;
+            movie.Sessions = sessions;
+            Movies[index] = movie;
 		}
 		public static void Delete(int id)
 		{
